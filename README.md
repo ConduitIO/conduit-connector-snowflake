@@ -63,6 +63,9 @@ but imho out of scope of this PR.
 haris: can you briefly describe the metadata columns in the generated stream? also, can you please describe how is the 
 stream/table populated? we don't have to go into implementation details, just high level.
 
+haris: I recall us planning to think about that approach, where an "incrementing field" needs to be specified. Did we
+find something interesting there?
+
 CDC iterator starts working if snapshot iterator method `HasNext` return false.
 CDC iterator uses snowflake stream (more information about streams https://docs.snowflake.com/en/user-guide/streams-intro.html) 
 When source starts work first time iterator <b>creates</b> stream with name `conduit_stream_{table}` to `table` from
