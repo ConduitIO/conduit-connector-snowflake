@@ -60,7 +60,8 @@ it to `Record` sets metadata variable `table`, set metadata variable `action` - 
 haris: it's worth considering the option to skip snapshot and start with CDC. that's something some connectors offer.
 but imho out of scope of this PR.
 
-haris: can you briefly describe the metadata columns in the generated stream?
+haris: can you briefly describe the metadata columns in the generated stream? also, can you please describe how is the 
+stream/table populated? we don't have to go into implementation details, just high level.
 
 CDC iterator starts working if snapshot iterator method `HasNext` return false.
 CDC iterator uses snowflake stream (more information about streams https://docs.snowflake.com/en/user-guide/streams-intro.html) 
