@@ -70,6 +70,7 @@ func ParseSDKPosition(p sdk.Position) (Position, error) {
 
 // ConvertToSDKPosition formats and returns sdk.Position.
 func (p Position) ConvertToSDKPosition() sdk.Position {
+	// haris: is it safe to ignore the error? maybe panic? it appears to be a huge thing.
 	b, _ := json.Marshal(p)
 
 	return b
