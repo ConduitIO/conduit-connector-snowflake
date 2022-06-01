@@ -56,6 +56,7 @@ func NewCDCIterator(
 		key:       key,
 		index:     index,
 		offset:    offset,
+		// maha: typo? should be "batchSize"
 		butchSize: butchSize,
 		data:      data,
 	}

@@ -22,7 +22,7 @@ const (
 	KeyConnection string = "connection"
 	KeyTable      string = "table"
 	KeyColumns    string = "columns"
-	KeyKey        string = "key"
+	KeyKey        string = "key" // maha: rename to primaryKey or keyColumn or something clearer?
 )
 
 // Config represents configuration needed for Snowflake.
