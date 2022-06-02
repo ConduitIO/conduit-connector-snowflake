@@ -230,6 +230,7 @@ func (s *Snowflake) GetTrackingData(
 func buildGetDataQuery(table, key string, fields []string, offset, limit int) string {
 	sb := sqlbuilder.NewSelectBuilder()
 
+	// haris: is it possible that fields is an empty slice?
 	if fields == nil {
 		sb.Select("*")
 	} else {

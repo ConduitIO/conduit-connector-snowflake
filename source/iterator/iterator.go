@@ -87,6 +87,7 @@ func New(
 
 	switch posType {
 	case position.TypeSnapshot:
+		// haris: we already have `p` parsed, so maybe we don't need pos?
 		snapshotIterator, err = setupSnapshotIterator(ctx, snowflake, pos, table, key,
 			columns, batchSize, isFirstStart)
 		if err != nil {
