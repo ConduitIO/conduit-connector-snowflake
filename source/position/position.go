@@ -34,8 +34,12 @@ type Position struct {
 	// IteratorType - shows in what iterator was created position.
 	IteratorType IteratorType
 
+	// haris: can you elaborate a bit more?
 	// Element - index position in current offset.
 	Element int
+
+	// haris: is this the offset of a record in a Snowflake table?
+	// can we uniquely identify a record using this?
 	// Offset - show current offset.
 	Offset int
 }
@@ -70,6 +74,7 @@ func ParseSDKPosition(p sdk.Position) (Position, error) {
 
 // ConvertToSDKPosition formats and returns sdk.Position.
 func (p Position) ConvertToSDKPosition() sdk.Position {
+	// haris: is it safe to ignore the error? maybe panic? it appears to be a huge thing.
 	b, _ := json.Marshal(p)
 
 	return b

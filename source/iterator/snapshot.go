@@ -27,6 +27,11 @@ import (
 
 // SnapshotIterator to iterate snowflake objects.
 type SnapshotIterator struct {
+	// haris: it would be good to have comments for these fields,
+	// especially the ones with generic names:
+	// index (currenct index being process, or last successfully processed?)
+	// offset (offset being read or last offset read?)
+	// etc.
 	snowflake Repository
 
 	table   string
@@ -102,6 +107,7 @@ func (i *SnapshotIterator) Next(ctx context.Context) (sdk.Record, error) {
 	}
 
 	if _, ok := i.data[i.index][i.key]; !ok {
+		// haris: i.e. this record doesn't have the key column which was specified in the configuration?
 		return sdk.Record{}, ErrKeyIsNotExist
 	}
 
@@ -112,6 +118,7 @@ func (i *SnapshotIterator) Next(ctx context.Context) (sdk.Record, error) {
 	return sdk.Record{
 		Position: pos.ConvertToSDKPosition(),
 		Metadata: map[string]string{
+			// haris: out of curiosity, why not have a single, flat, table?
 			metadataTable:  i.table,
 			metadataAction: string(actionInsert),
 		},

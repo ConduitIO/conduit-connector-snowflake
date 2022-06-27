@@ -20,6 +20,7 @@ import (
 
 // Repository interface.
 type Repository interface {
+	// haris: it would be good to comment all these functions
 	GetData(ctx context.Context, table, key string, fields []string,
 		offset, limit int) ([]map[string]interface{}, error)
 	CreateStream(ctx context.Context, stream, table string) error

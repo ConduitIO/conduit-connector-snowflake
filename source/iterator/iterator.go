@@ -75,6 +75,8 @@ func New(
 			return nil, fmt.Errorf("create tracking table: %w", err)
 		}
 	} else {
+		// haris: it appears that in this case we assume that the tracking stream and table
+		// already exist. Is that correct? What if they don't?
 		p, er := position.ParseSDKPosition(pos)
 		if er != nil {
 			return nil, fmt.Errorf("parse sdk position: %w", err)
@@ -85,6 +87,7 @@ func New(
 
 	switch posType {
 	case position.TypeSnapshot:
+		// haris: we already have `p` parsed, so maybe we don't need pos?
 		snapshotIterator, err = setupSnapshotIterator(ctx, snowflake, pos, table, key,
 			columns, batchSize, isFirstStart)
 		if err != nil {

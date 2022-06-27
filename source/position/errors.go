@@ -18,6 +18,7 @@ import (
 	"errors"
 )
 
+// maha: first and last error are not used in the code
 var (
 	ErrFieldInvalidElement = errors.New("invalid element type")
 	ErrUnknownIteratorType = errors.New("unknown iterator type")
